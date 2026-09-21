@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Give Your Answer to Abishek 👀</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 40px 25px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 35px;
+  color: #333;
+}
+
+.question {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 35px;
+  color: #222;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  min-height: 55px;
+}
+
+button {
+  border: none;
+  padding: 14px 25px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.no {
+  background: #eeeeee;
+  color: #333;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.message {
+  height: 25px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.final h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.final p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.restart {
+  margin-top: 25px;
+  background: #667eea;
+  color: white;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+.heart {
+  position: fixed;
+  font-size: 25px;
+  animation: floatUp 3s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .question {
+    font-size: 23px;
+  }
+
+  button {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="card">
+
+    <div class="title">
+      Give your answer to Abishek 👀
+    </div>
+
+    <div class="question">
+      Did you like me?
+    </div>
+
+    <div class="buttons">
+
+      <!-- YES works -->
+      <button class="yes" onclick="nextPage(2)">
+        ❤️ YES
+      </button>
+
+      <!-- NO escapes -->
+      <button class="no trap">
+        😶 NO
+      </button>
+
+    </div>
+
+    <div class="message"></div>
+
+  </div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="card">
+
+    <div class="title">
+      Give your answer to Abishek 👀
+    </div>
+
+    <div class="question">
+      How much do you like me? 👀
+    </div>
+
+    <div class="buttons">
+
+      <!-- A LOT escapes -->
+      <button class="yes trap">
+        ❤️ A lot
+      </button>
+
+      <!-- NOT AT ALL works -->
+      <button class="no" onclick="nextPage(3)">
+        😶 Not at all
+      </button>
+
+    </div>
+
+    <div class="message"></div>
+
+  </div>
+</div>
+
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="card">
+
+    <div class="title">
+      Give your answer to Abishek 👀
+    </div>
+
+    <div class="question">
+      Are you stupid?
+    </div>
+
+    <div class="buttons">
+
+      <!-- YES works -->
+      <button class="yes" onclick="nextPage(4)">
+        😭 YES
+      </button>
+
+      <!-- NO escapes -->
+      <button class="no trap">
+        😎 NO
+      </button>
+
+    </div>
+
+    <div class="message"></div>
+
+  </div>
+</div>
+
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+  <div class="card">
+
+    <div class="title">
+      Give your answer to Abishek 👀
+    </div>
+
+    <div class="question">
+      Do you miss me sometimes? 👀
+    </div>
+
+    <div class="buttons">
+
+      <!-- YES escapes -->
+      <button class="yes trap">
+        ❤️ Yes
+      </button>
+
+      <!-- NO works -->
+      <button class="no" onclick="nextPage(5)">
+        😌 No
+      </button>
+
+    </div>
+
+    <div class="message"></div>
+
+  </div>
+</div>
+
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+  <div class="card">
+
+    <div class="title">
+      Give your answer to Abishek 👀
+    </div>
+
+    <div class="question">
+      Do you think you can live without me? 💀
+    </div>
+
+    <div class="buttons">
+
+      <!-- NO escapes -->
+      <button class="yes trap">
+        😭 No
+      </button>
+
+      <!-- YES works -->
+      <button class="no" onclick="showFinal()">
+        😎 Yes
+      </button>
+
+    </div>
+
+    <div class="message"></div>
+
+  </div>
+</div>
+
+
+<!-- FINAL PAGE -->
+<div class="page" id="finalPage">
+  <div class="card final">
+
+    <div class="title">
+      Give your answer to Abishek 👀
+    </div>
+
+    <h1>You actually made it! 😂</h1>
+
+    <p>
+      Somehow you survived all five questions. 😂
+      <br><br>
+      Thanks for answering for Abishek! ❤️
+    </p>
+
+    <button class="restart" onclick="restart()">
+      🔄 Start Again
+    </button>
+
+  </div>
+</div>
+
+</div>
+
+
+<script>
+
+const funnyMessages = [
+  "Nice try 😂",
+  "Nope! 👀",
+  "Too slow 🏃💨",
+  "You can't catch me 😭",
+  "Try again 💀",
+  "Almost... SIKE 😂",
+  "Why are you chasing me? 😭"
+];
+
+
+// ALL ESCAPE BUTTONS
+document.querySelectorAll(".trap").forEach(button => {
+
+  button.addEventListener("mouseenter", () => {
+    escapeButton(button);
+  });
+
+  button.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+    escapeButton(button);
+  });
+
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    escapeButton(button);
+  });
+
+});
+
+
+function escapeButton(button) {
+
+  const maxX = window.innerWidth - button.offsetWidth - 20;
+  const maxY = window.innerHeight - button.offsetHeight - 20;
+
+  const randomX = Math.max(
+    10,
+    Math.random() * maxX
+  );
+
+  const randomY = Math.max(
+    10,
+    Math.random() * maxY
+  );
+
+  button.style.position = "fixed";
+  button.style.left = randomX + "px";
+  button.style.top = randomY + "px";
+  button.style.zIndex = "9999";
+
+  const message =
+    button.closest(".card").querySelector(".message");
+
+  message.textContent =
+    funnyMessages[
+      Math.floor(Math.random() * funnyMessages.length)
+    ];
+
+  const card = button.closest(".card");
+
+  card.classList.remove("shake");
+
+  void card.offsetWidth;
+
+  card.classList.add("shake");
+}
+
+
+// NEXT PAGE
+function nextPage(pageNumber) {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document
+    .getElementById("page" + pageNumber)
+    .classList.add("active");
+}
+
+
+// FINAL PAGE
+function showFinal() {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document
+    .getElementById("finalPage")
+    .classList.add("active");
+
+  createHearts();
+}
+
+
+// HEARTS
+function createHearts() {
+
+  for (let i = 0; i < 25; i++) {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.textContent = "❤️";
+
+    heart.style.left =
+      Math.random() * 100 + "vw";
+
+    heart.style.bottom = "-30px";
+
+    heart.style.animationDelay =
+      Math.random() * 2 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+}
+
+
+// RESTART
+function restart() {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document
+    .getElementById("page1")
+    .classList.add("active");
+
+  document.querySelectorAll(".trap").forEach(button => {
+
+    button.style.position = "";
+    button.style.left = "";
+    button.style.top = "";
+    button.style.zIndex = "";
+
+  });
+
+  document.querySelectorAll(".message").forEach(message => {
+    message.textContent = "";
+  });
+}
+
+</script>
+
+</body>
+</html>
